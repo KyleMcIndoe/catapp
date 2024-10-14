@@ -45,13 +45,13 @@ function App() {
   }
 
   return (
-    <>
+    <div className='main'>
       <h1 className='title'>{title}</h1>
       <p className='body'>{body}</p>
       <button onClick={() => {
         getFact()
       }}>Get cat fact</button>
-    </>
+    </div>
   )
 }
 
