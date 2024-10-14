@@ -13,6 +13,9 @@ function App() {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
 
+  const [breedTitle, setBreedTitle] = useState('')
+  const [breedBody, setBreedBody] = useState('')
+
   useEffect(() => {
     getFact()
   }, [])
@@ -25,6 +28,18 @@ function App() {
       let i = getRandomInt(obj.length)
       setTitle(res.data[i].title)
       setBody(res.data[i].body)
+    })
+    .catch(err => console.log(err))
+  }
+
+  function getBreed() {
+    axios.get('http://127.0.0.1:8000/api/breeds/')
+    .then(res => {
+      console.log(res.data)
+      let obj = Object.keys(res.data)
+      let i = getRandomInt(obj.length)
+      setBreedTitle(res.data[i].title)
+      setBreedBody(res.data[i].body)
     })
     .catch(err => console.log(err))
   }
